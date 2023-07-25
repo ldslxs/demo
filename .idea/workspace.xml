@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ec96f54-3a07-4632-95d7-e419a3adef8a" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bigdata/utils/HBaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bigdata/utils/HBaseUtils.java" afterDir="false" />
-    </list>
+    <list default="true" id="1ec96f54-3a07-4632-95d7-e419a3adef8a" name="变更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -255,7 +253,21 @@
       <option name="project" value="LOCAL" />
       <updated>1690279132489</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update src/main/java/com/bigdata/utils/HBaseUtils.java.&#10;&#10;Signed-off-by: 李小帅 &lt;1761874988@qq.com&gt;">
+      <created>1690279514286</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1690279514286</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update src/main/java/com/bigdata/utils/HBaseUtils.java.&#10;&#10;Signed-off-by: 李小帅 &lt;1761874988@qq.com&gt;">
+      <created>1690279583743</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1690279583743</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
