@@ -1,0 +1,93 @@
+Index: src/main/java/com/bigdata/utils/HBaseUtils.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.bigdata.utils;\r\n\r\nimport org.apache.hadoop.conf.Configuration;\r\nimport org.apache.hadoop.hbase.HBaseConfiguration;\r\nimport org.apache.hadoop.hbase.TableName;\r\nimport org.apache.hadoop.hbase.client.Admin;\r\nimport org.apache.hadoop.hbase.client.Connection;\r\nimport org.apache.hadoop.hbase.client.ConnectionFactory;\r\nimport org.apache.hadoop.hbase.client.Table;\r\n\r\nimport java.io.IOException;\r\n\r\n// 工具类中的方法一般都是静态方法\r\npublic class HBaseUtils {\r\n\r\n\r\n    public static Connection connection = null;\r\n    // static 在进入jvm虚拟机的时候就会执行 static\r\n    static{\r\n        Configuration configuration = HBaseConfiguration.create();\r\n        // java 代码是通过zk 来控制 hbase的\r\n        configuration.set(\"hbase.zookeeper.quorum\",\"node04:2181\");\r\n        try {\r\n            connection = ConnectionFactory.createConnection(configuration);\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    // 获取admin对象方法\r\n    public static Admin getAdmin(){\r\n        Admin admin = null;\r\n        try {\r\n            admin = connection.getAdmin();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n        return admin;\r\n    }\r\n\r\n    // 获取connection\r\n    public static Connection getConnection(){\r\n        return connection;\r\n    }\r\n\r\n    // 用完之后记得关闭\r\n    public static void close(Admin admin){\r\n        try {\r\n            admin.close();\r\n            connection.close();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public static Table getTable(String proc2) {\r\n        try {\r\n            return getConnection().getTable(TableName.valueOf(proc2));\r\n        } catch (IOException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/bigdata/utils/HBaseUtils.java b/src/main/java/com/bigdata/utils/HBaseUtils.java
+--- a/src/main/java/com/bigdata/utils/HBaseUtils.java	(revision 4d07212117d134a2d3934757c01de8ff1f52b160)
++++ b/src/main/java/com/bigdata/utils/HBaseUtils.java	(date 1690277398914)
+@@ -13,7 +13,7 @@
+ // 工具类中的方法一般都是静态方法
+ public class HBaseUtils {
+ 
+-
++//lxs
+     public static Connection connection = null;
+     // static 在进入jvm虚拟机的时候就会执行 static
+     static{
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"1ec96f54-3a07-4632-95d7-e419a3adef8a\" name=\"变更\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeInsightWorkspaceSettings\">\r\n    <option name=\"optimizeImportsOnTheFly\" value=\"true\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"HTML File\" />\r\n        <option value=\"spring-beans.schema\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"jar://D:/Maven/repo/org/apache/hbase/hbase-client/2.2.2/hbase-client-2.2.2-sources.jar!/org/apache/hadoop/hbase/HColumnDescriptor.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"jar://D:/Maven/repo/org/apache/hbase/hbase-client/2.2.2/hbase-client-2.2.2-sources.jar!/org/apache/hadoop/hbase/HTableDescriptor.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"jar://D:/Maven/repo/org/apache/hbase/hbase-client/2.2.2/hbase-client-2.2.2-sources.jar!/org/apache/hadoop/hbase/client/Admin.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"jar://D:/Maven/repo/org/apache/hbase/hbase-client/2.2.2/hbase-client-2.2.2-sources.jar!/org/apache/hadoop/hbase/client/TableDescriptor.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"jar://D:/Maven/repo/org/apache/hbase/hbase-client/2.2.2/hbase-client-2.2.2.jar!/org/apache/hadoop/hbase/client/Admin.class\" root0=\"SKIP_INSPECTION\" />\r\n    <setting file=\"jar://D:/Maven/repo/org/apache/hbase/hbase-client/2.2.2/hbase-client-2.2.2.jar!/org/apache/hadoop/hbase/client/TableDescriptor.class\" root0=\"SKIP_INSPECTION\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"2\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2RXt50kEKock4N50iTEV7Vz0jOx\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"DefaultHtmlFileTemplate\": \"HTML File\",\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"75\",\r\n    \"RequestMappingsPanelWidth1\": \"75\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"jdk.selected.JAVA_MODULE\": \"corretto-18\",\r\n    \"last_opened_file_path\": \"C:/Users/17618/Downloads/Compressed/study_share-master/study_share-master/myWebDemo\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"模块\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.40938362\",\r\n    \"settings.editor.selected.configurable\": \"com.gitee.ui.GiteeSettingsConfigurable\",\r\n    \"spring.configuration.checksum\": \"fe01ce2a7fbac8fafaed7c982a04e229\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\17618\\IdeaProjects\\demo\\src\\main\\resources\\static\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"com.example\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunAnythingCache\">\r\n    <option name=\"myCommands\">\r\n      <command value=\"mvn clean package -Dmaven.test.skip=true\" />\r\n    </option>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"应用程序.TestThinDemo\">\r\n    <configuration name=\"TestFatDemo\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.bigdata.TestFatDemo\" />\r\n      <module name=\"FatDemo\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.bigdata.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TestMyProcessorAdd\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.coprocessor.TestMyProcessorAdd\" />\r\n      <module name=\"demo\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TestThinDemo\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.bigdata.TestThinDemo\" />\r\n      <module name=\"FatDemo\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.bigdata.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Test2.testFamilyFilter\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"demo\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.demo.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.example.demo\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.demo.Test2\" />\r\n      <option name=\"METHOD_NAME\" value=\"testFamilyFilter\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Test.addTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"demo\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.demo.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.example.demo\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.demo.Test\" />\r\n      <option name=\"METHOD_NAME\" value=\"addTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"DemoApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"demo\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.demo.DemoApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"应用程序.TestThinDemo\" />\r\n        <item itemvalue=\"应用程序.TestFatDemo\" />\r\n        <item itemvalue=\"JUnit.Test.addTest\" />\r\n        <item itemvalue=\"应用程序.TestMyProcessorAdd\" />\r\n        <item itemvalue=\"JUnit.Test2.testFamilyFilter\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"应用程序级\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"默认任务\">\r\n      <changelist id=\"1ec96f54-3a07-4632-95d7-e419a3adef8a\" name=\"变更\" comment=\"\" />\r\n      <created>1687408067785</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1687408067785</updated>\r\n      <workItem from=\"1687408068941\" duration=\"675000\" />\r\n      <workItem from=\"1687409298661\" duration=\"358000\" />\r\n      <workItem from=\"1687424826789\" duration=\"83000\" />\r\n      <workItem from=\"1688802659915\" duration=\"731000\" />\r\n      <workItem from=\"1689153857385\" duration=\"1919000\" />\r\n      <workItem from=\"1689767030729\" duration=\"1550000\" />\r\n      <workItem from=\"1689816388443\" duration=\"28000\" />\r\n      <workItem from=\"1689820060274\" duration=\"17008000\" />\r\n      <workItem from=\"1689902600057\" duration=\"226000\" />\r\n      <workItem from=\"1689903799022\" duration=\"7656000\" />\r\n      <workItem from=\"1689930884951\" duration=\"397000\" />\r\n      <workItem from=\"1689941656452\" duration=\"408000\" />\r\n      <workItem from=\"1689986315202\" duration=\"6000\" />\r\n      <workItem from=\"1690161954107\" duration=\"9512000\" />\r\n      <workItem from=\"1690194087693\" duration=\"6006000\" />\r\n      <workItem from=\"1690202758119\" duration=\"291000\" />\r\n      <workItem from=\"1690273893970\" duration=\"1058000\" />\r\n      <workItem from=\"1690274969988\" duration=\"1051000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/demo$Test_test.ic\" NAME=\"Test.test 覆盖结果\" MODIFIED=\"1689841117260\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>com.example.demo.*</FILTER>\r\n    </SUITE>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 4d07212117d134a2d3934757c01de8ff1f52b160)
++++ b/.idea/workspace.xml	(date 1690277399353)
+@@ -4,7 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="1ec96f54-3a07-4632-95d7-e419a3adef8a" name="变更" comment="" />
++    <list default="true" id="1ec96f54-3a07-4632-95d7-e419a3adef8a" name="变更" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/bigdata/utils/HBaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bigdata/utils/HBaseUtils.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -24,6 +27,10 @@
+         <option value="Class" />
+       </list>
+     </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="RESET_MODE" value="MIXED" />
+   </component>
+   <component name="HighlightingSettingsPerFile">
+     <setting file="jar://D:/Maven/repo/org/apache/hbase/hbase-client/2.2.2/hbase-client-2.2.2-sources.jar!/org/apache/hadoop/hbase/HColumnDescriptor.java" root0="FORCE_HIGHLIGHTING" />
+@@ -47,6 +54,7 @@
+     <option name="version" value="2" />
+   </component>
+   <component name="ProjectId" id="2RXt50kEKock4N50iTEV7Vz0jOx" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="showLibraryContents" value="true" />
+   </component>
+@@ -59,6 +67,7 @@
+     "RequestMappingsPanelWidth1": "75",
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "WebServerToolWindowFactoryState": "false",
+     "jdk.selected.JAVA_MODULE": "corretto-18",
+     "last_opened_file_path": "C:/Users/17618/Downloads/Compressed/study_share-master/study_share-master/myWebDemo",
+@@ -198,12 +207,23 @@
+       <workItem from="1690194087693" duration="6006000" />
+       <workItem from="1690202758119" duration="291000" />
+       <workItem from="1690273893970" duration="1058000" />
+-      <workItem from="1690274969988" duration="1051000" />
++      <workItem from="1690274969988" duration="2211000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
