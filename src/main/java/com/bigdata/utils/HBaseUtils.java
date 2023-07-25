@@ -14,7 +14,7 @@ import java.io.IOException;
 public class HBaseUtils {
 
 //李晓帅
-
+//李晓帅
     public static Connection connection = null;
     // static 在进入jvm虚拟机的时候就会执行 static
     static{
