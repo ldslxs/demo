@@ -19,7 +19,7 @@ public class HBaseUtils {
     static{
         Configuration configuration = HBaseConfiguration.create();
         // java 代码是通过zk 来控制 hbase的
-        configuration.set("hbase.zookeeper.quorum","node04:2181");
+        configuration.set("hbase.zookeeper.quorum123123","node04:2181");
         try {
             connection = ConnectionFactory.createConnection(configuration);
         } catch (IOException e) {
