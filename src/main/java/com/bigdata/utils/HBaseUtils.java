@@ -13,8 +13,13 @@ import java.io.IOException;
 // 工具类中的方法一般都是静态方法
 public class HBaseUtils {
 
+    //李晓帅
 //李晓帅
-
+//李晓帅
+//李晓帅
+//李晓帅12312312312
+//李晓帅12312312312
+//llll
     public static Connection connection = null;
     // static 在进入jvm虚拟机的时候就会执行 static
     static{
@@ -27,7 +32,7 @@ public class HBaseUtils {
             e.printStackTrace();
         }
     }
-//hhh
+    //哇大大拉萨的考虑 哇大大拉萨的考虑哇大大拉萨的考虑哇大大拉萨的考虑
     // 获取admin对象方法
     public static Admin getAdmin(){
         Admin admin = null;
