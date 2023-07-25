@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ec96f54-3a07-4632-95d7-e419a3adef8a" name="变更" comment="update src/main/java/com/bigdata/utils/HBaseUtils.java.&#10;&#10;Signed-off-by: 李小帅 &lt;1761874988@qq.com&gt;">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bigdata/utils/HBaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bigdata/utils/HBaseUtils.java" afterDir="false" />
-    </list>
+    <list default="true" id="1ec96f54-3a07-4632-95d7-e419a3adef8a" name="变更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -283,7 +281,28 @@
       <option name="project" value="LOCAL" />
       <updated>1690279976749</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update src/main/java/com/bigdata/utils/HBaseUtils.java.&#10;&#10;Signed-off-by: 李小帅 &lt;1761874988@qq.com&gt;">
+      <created>1690280309993</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690280309993</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update src/main/java/com/bigdata/utils/HBaseUtils.java.&#10;&#10;Signed-off-by: 李小帅 &lt;1761874988@qq.com&gt;">
+      <created>1690280522062</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1690280522062</updated>
+    </task>
+    <task id="LOCAL-00014" summary="update src/main/java/com/bigdata/utils/HBaseUtils.java.&#10;&#10;Signed-off-by: 李小帅 &lt;1761874988@qq.com&gt;">
+      <created>1690280570792</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1690280570792</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
