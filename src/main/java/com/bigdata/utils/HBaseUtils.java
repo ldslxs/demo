@@ -16,6 +16,8 @@ public class HBaseUtils {
 //李晓帅
 //李晓帅
 //李晓帅
+//李晓帅
+//李晓帅
     public static Connection connection = null;
     // static 在进入jvm虚拟机的时候就会执行 static
     static{
@@ -28,7 +30,6 @@ public class HBaseUtils {
             e.printStackTrace();
         }
     }
-    //lasdalsdpals;dl;askdlaskdl;asdk
 
     // 获取admin对象方法
     public static Admin getAdmin(){
