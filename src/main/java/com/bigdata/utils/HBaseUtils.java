@@ -30,7 +30,7 @@ public class HBaseUtils {
             e.printStackTrace();
         }
     }
-
+//哇大大拉萨的考虑
     // 获取admin对象方法
     public static Admin getAdmin(){
         Admin admin = null;
